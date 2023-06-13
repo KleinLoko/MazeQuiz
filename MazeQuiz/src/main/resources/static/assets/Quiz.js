@@ -99,8 +99,8 @@ async function registrarQuiz() {
         headers: getHeaders(),
     });
 
-    location.reload();
-    alert("Se registró el jugador");
+    location.reload()
+    alert("Se registró el quiz");
 
 }
 

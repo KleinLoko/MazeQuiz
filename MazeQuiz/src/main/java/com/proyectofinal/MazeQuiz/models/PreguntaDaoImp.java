@@ -22,7 +22,7 @@ public class PreguntaDaoImp implements PreguntaDAO {
     EntityManager entityManager;// se utiliza para realizar operaciones de lectura, escritura, actualización y eliminación en la base de datos.
 
     /**
-     *
+     * Consulta HQL que permite obtener todas las preguntas de la base de datos
      * @return
      */
     @Override
@@ -34,7 +34,7 @@ public class PreguntaDaoImp implements PreguntaDAO {
     }
 
     /**
-     *
+     * método que permite obtener una sola pregunta de la base de datos
      * @param id
      * @return
      */
@@ -45,7 +45,7 @@ public class PreguntaDaoImp implements PreguntaDAO {
     }
 
     /**
-     *
+     * Metodo para actualizar una pregunta
      * @param pregunta
      */
     @Override
@@ -54,7 +54,7 @@ public class PreguntaDaoImp implements PreguntaDAO {
     }
 
     /**
-     *
+     *  Metodo para registrar una nueva pregunta
      * @param pregunta
      */
     @Override
@@ -63,7 +63,7 @@ public class PreguntaDaoImp implements PreguntaDAO {
     }
 
     /**
-     *
+     * método que permite eliminar una pregunta según su id
      * @param id
      */
     @Override

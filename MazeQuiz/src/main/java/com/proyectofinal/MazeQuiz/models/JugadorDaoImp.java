@@ -20,7 +20,7 @@ public class JugadorDaoImp implements JugadorDAO {
     EntityManager entityManager; // se utiliza para realizar operaciones de lectura, escritura, actualización y eliminación en la base de datos.
 
     /**
-     *
+     * Consulta HQL que permite obtener todos los jugadores de la base de datos
      * @return
      */
     @Override
@@ -30,7 +30,21 @@ public class JugadorDaoImp implements JugadorDAO {
     }
 
     /**
-     *
+     * Metodo que permite aumentar el puntaje de un jugador
+     * @param jugadorid
+     */
+    @Override
+    public void AumentarPuntaje(int jugadorid) {
+        Jugador jugador = entityManager.find(Jugador.class, jugadorid);
+        if (jugador != null) {
+            jugador.setJugPuntaje(jugador.getJugPuntaje() + 1);
+            entityManager.merge(jugador);
+
+        }
+    }
+
+    /**
+     * método que permite obtener un solo jugador de la base de datos
      * @param id
      * @return
      */
@@ -41,7 +55,7 @@ public class JugadorDaoImp implements JugadorDAO {
     }
 
     /**
-     *
+     * Metodo que permite registrar un nuevo jugador
      * @param jugador
      */
     @Override
@@ -50,7 +64,7 @@ public class JugadorDaoImp implements JugadorDAO {
     }
 
     /**
-     *
+     * método que permite eliminar un jugador según su id
      * @param id
      */
     @Override
@@ -60,7 +74,7 @@ public class JugadorDaoImp implements JugadorDAO {
     }
 
     /**
-     *
+     * Este metodo esta deshabilitado
      * @param jugador
      * @return
      */
@@ -76,7 +90,7 @@ public class JugadorDaoImp implements JugadorDAO {
     }
 
     /**
-     *
+     * Este metodo permite actualizar las caracteristicas de un jugador
      * @param jugador
      */
     @Override

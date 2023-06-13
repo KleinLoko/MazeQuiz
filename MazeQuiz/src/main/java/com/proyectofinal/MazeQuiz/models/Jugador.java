@@ -5,48 +5,62 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+/**
+ * Modelo del jugador
+ */
 @Entity
 @Table(name = "jugador")
 public class Jugador {
 
+    //declaracion de variables
     @Id
     @Getter
     @Setter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "jugID")
-    private int jugid;
+    private int jugid; /// ID de jugador
 
     @Getter
     @Setter
     @Column(name = "jugNombre", nullable = false)
-    private String jugNombre;
+    private String jugNombre; //Nombre del jugador
 
     @Getter
     @Setter
     @Column(name = "jugApellidoPat", nullable = false)
-    private String jugApellidoPat;
+    private String jugApellidoPat; //Apellido paterno del jugador
 
     @Getter
     @Setter
     @Column(name = "jugApellidoMat", nullable = false)
-    private String jugApellidoMat;
+    private String jugApellidoMat;  //Apellido Materno del jugador
 
     @Getter
     @Setter
     @Column(name = "jugCarrera", nullable = false)
-    private String jugCarrera;
+    private String jugCarrera;  //Carrera del jugador
 
     @Getter
     @Setter
     @Column(name = "jugPuntaje", nullable = false)
-    private int jugPuntaje;
+    private int jugPuntaje; //Piso del jugador
 
     @Getter
     @Setter
     @Column(name = "jugPassword", nullable = false)
-    private String jugPassword;
+    private String jugPassword; //Contraseña del jugador
 
 
+    /**
+     * Constructor completo
+     * @param jugid
+     * @param jugNombre
+     * @param jugApellidoPat
+     * @param jugApellidoMat
+     * @param jugCarrera
+     * @param jugPuntaje
+     * @param jugPassword
+     */
     public Jugador(int jugid, String jugNombre, String jugApellidoPat, String jugApellidoMat, String jugCarrera, int jugPuntaje, String jugPassword) {
         this.jugid = jugid;
         this.jugNombre = jugNombre;
@@ -57,6 +71,9 @@ public class Jugador {
         this.jugPassword = jugPassword;
     }
 
+    /**
+     * Constructor vacío
+     */
     public Jugador() {
     }
 }

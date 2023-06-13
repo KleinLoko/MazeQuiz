@@ -28,5 +28,7 @@ public interface JugadorDAO {
 
     //Método que actualiza un Jugador en la base de datos con los nuevos parametros en un objeto Jugador
     void actualizarJugador(Jugador jugador);
+
+    void AumentarPuntaje(int jugadorid);
 }
  

@@ -18,7 +18,7 @@ public class QuizDaoImp implements QuizDAO {
 
 
     /**
-     *
+     * Consulta HQL que permite obtener todos los quiz de la base de datos
      * @return
      */
     @Override
@@ -34,7 +34,26 @@ public class QuizDaoImp implements QuizDAO {
     }
 
     /**
-     *
+     * Metodo que permite obtener el Quiz que corresponde a la pregunta
+     * @param id
+     * @return
+     */
+    @Override
+    public List<Quiz> getQuizsPorPregunta(int id) {
+        String query = "SELECT q.idQuiz, q.pregunta.pregId, q.pregunta.pregDescrip, " +
+                "q.respuesta.resID, q.respuesta.resDescrip, q.quizValue " +
+                "FROM Quiz q " +
+                "JOIN q.pregunta p " +
+                "JOIN q.respuesta r " +
+                "WHERE q.pregunta.pregId = :pregId";
+
+        return entityManager.createQuery(query)
+                .setParameter("pregId", id) // Reemplaza "tuPregId" con el ID deseado
+                .getResultList();
+    }
+
+    /**
+     * Consulta HQL que permite obtener un quiz de la base de datos
      * @param id
      * @return
      */
@@ -52,13 +71,14 @@ public class QuizDaoImp implements QuizDAO {
     }
 
     /**
-     *
+     * método que permite registrar un nuevo quiz en la base de datos
      */
     @Override
     public void registrarQuiz(int pregunta, int respuesta, int value) {
         Quiz miQuiz = new Quiz();
         Pregunta miPregunta = entityManager.find(Pregunta.class, pregunta);
         Respuesta miRespuesta = entityManager.find(Respuesta.class, respuesta);
+
         miQuiz.setPregunta(miPregunta);
         miQuiz.setRespuesta(miRespuesta);
         miQuiz.setQuizValue(value);
@@ -68,7 +88,7 @@ public class QuizDaoImp implements QuizDAO {
     }
 
     /**
-     *
+     * método que permite eliminar un quiz según su id
      * @param id
      */
     @Override

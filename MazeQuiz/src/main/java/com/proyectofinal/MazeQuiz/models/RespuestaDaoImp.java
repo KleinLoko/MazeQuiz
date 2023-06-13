@@ -16,7 +16,7 @@ public class RespuestaDaoImp implements RespuestaDAO {
     EntityManager entityManager;// se utiliza para realizar operaciones de lectura, escritura, actualización y eliminación en la base de datos.
 
     /**
-     *
+     * Consulta HQL que permite obtener todas las respuestas de la base de datos
      * @return
      */
     @Override
@@ -27,7 +27,7 @@ public class RespuestaDaoImp implements RespuestaDAO {
     }
 
     /**
-     *
+     * Retorna un objeto Respuesta
      * @param id
      * @return
      */
@@ -39,7 +39,7 @@ public class RespuestaDaoImp implements RespuestaDAO {
     }
 
     /**
-     *
+     * Permite agregar una nueva respuesta
      * @param respuesta
      */
     @Override
@@ -48,7 +48,7 @@ public class RespuestaDaoImp implements RespuestaDAO {
     }
 
     /**
-     *
+     * método que permite eliminar una respuesta según su id
      * @param id
      */
     @Override
@@ -58,7 +58,7 @@ public class RespuestaDaoImp implements RespuestaDAO {
     }
 
     /**
-     *
+     * Permite actualizar una respuesta
      * @param respuesta
      */
     @Override

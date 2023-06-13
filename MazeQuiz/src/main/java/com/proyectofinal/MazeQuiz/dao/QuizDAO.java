@@ -12,12 +12,15 @@ public interface QuizDAO {
     //método que retornará todas los Quiz de la bd;
     List<Quiz> getQuizs();
 
+    List<Quiz> getQuizsPorPregunta(int id);
+
     //retorna un Quiz con el id indicado;
     List<Quiz> getQuiz(int id);
 
-    void registrarQuiz( int pregunta, int respuesta, int value);
+    //permite agregar una nueva Quiz
+    void registrarQuiz(int pregunta, int respuesta, int value);
 
-    //Elmina una Quiz de la base de datos;
+    //Elimina una Quiz de la base de datos;
     void eliminarQuiz(int id);
 
 }

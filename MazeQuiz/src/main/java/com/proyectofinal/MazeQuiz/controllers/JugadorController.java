@@ -3,7 +3,7 @@ package com.proyectofinal.MazeQuiz.controllers;
 import com.proyectofinal.MazeQuiz.dao.JugadorDAO;
 import com.proyectofinal.MazeQuiz.models.Jugador;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,7 +28,6 @@ public class JugadorController implements JugadorDAO {
      * @return
      */
     @Override
-    @PreAuthorize("hasRole('USER')")
     @RequestMapping(value = "jugador", method = RequestMethod.GET)
     public List<Jugador> getJugadores() {
         return jugadorDAO.getJugadores();
@@ -41,7 +40,6 @@ public class JugadorController implements JugadorDAO {
      * @param id
      * @return
      */
-    @PreAuthorize("hasRole('USER')")
     @RequestMapping(value = "jugador/{id}", method = RequestMethod.GET)
     public Jugador getJugador(@PathVariable int id) {
         return jugadorDAO.getJugador(id);
@@ -54,10 +52,15 @@ public class JugadorController implements JugadorDAO {
      *
      * @param jugador
      */
-    @PreAuthorize("hasRole('USER')")
+
     @RequestMapping(value = "actualizarjugador", method = RequestMethod.POST)
     public void actualizarJugador(@RequestBody Jugador jugador) {
         jugadorDAO.actualizarJugador(jugador);
+    }
+
+    @RequestMapping(value = "aumentarpuntaje/{id}", method = RequestMethod.POST)
+    public void AumentarPuntaje(@PathVariable int id) {
+        jugadorDAO.AumentarPuntaje(id);
     }
 
     /**
@@ -66,7 +69,7 @@ public class JugadorController implements JugadorDAO {
      *
      * @param jugador
      */
-    @PreAuthorize("hasRole('USER')")
+
     @RequestMapping(value = "guardarjugador", method = RequestMethod.POST)
     public void registrarJugador(@RequestBody Jugador jugador) {
         jugadorDAO.registrarJugador(jugador);
@@ -78,7 +81,7 @@ public class JugadorController implements JugadorDAO {
      *
      * @param id
      */
-    @PreAuthorize("hasRole('USER')")
+
     @RequestMapping(value = "eliminarjugador/{id}", method = RequestMethod.DELETE)
     public void eliminar(@PathVariable int id) {
         jugadorDAO.eliminar(id);
